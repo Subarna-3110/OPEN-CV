@@ -1,0 +1,20 @@
+from neighbourhood import *;
+import numpy as np;
+img2=image.copy()
+for i in range(2,258):
+    for j in range(2,258):
+        
+        neighbors=[]
+        
+        for k in range(i-2,i+3):
+            for l in range(j-2,j+3):
+               neighbors.append(image[k,l])
+                
+        
+        minimum=np.amin(neighbors,axis=0)
+        
+        img2[i,j]=minimum
+                
+cv2.imshow("min image.jpg",img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()        
